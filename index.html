@@ -1,11 +1,76 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Simple Calculator</title>
+
+    <style>
+
+        
+        button {
+            height: 60px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            background-color: peach;
+            color: black;
+        }
+
+        .clear{
+            background-color: mediumvioletred;
+        }
+
+        .delete{
+            background-color: mediumvioletred;
+        }
+
+        .operator{
+            background-color: mediumvioletred;
+        }
+
+        
+        button:hover {
+            background-color:lemonchiffon;
+            color:black;
+            transform: scale(1);z
+        }
+
+       
+        button:active {
+            transform: scale(0.90);
+        }
+
+        .clear:hover{
+            background-color:red ;
+            color: white;
+            transform: scale(1);
+        }
+
+        .delete:hover{
+            background-color: orangered;
+            color:white;
+            transform: scale(1);
+        }
+
+        .operator:hover{
+            background-color:rosybrown;
+            color: white;
+            transform: scale(1);
+        }
+
+
+
+    </style>
+
 </head>
+
 
 <body style="
     margin: 0;
@@ -13,16 +78,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
+    background-color:floralwhite;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 ">
 
+
+   
     <div style="
-        background-color: #222;
+        background-color:pink;
         padding: 20px;
         border-radius: 15px;
         width: 300px;
     ">
+
+
+       
 
         <input
             type="text"
@@ -39,80 +110,122 @@
             "
         >
 
+
+       
+
         <div style="
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
         ">
 
-            <button onclick="clearDisplay()" style="height: 60px; font-size: 20px;">C</button>
 
-            <button onclick="deleteLast()" style="height: 60px; font-size: 20px;">DEL</button>
+           
 
-            <button onclick="appendValue('%')" style="height: 60px; font-size: 20px;">%</button>
+            <button class="clear" onclick="clearDisplay()">
+                C
+            </button>
 
-            <button onclick="appendValue('/')" style="height: 60px; font-size: 20px;">÷</button>
+            <button class="delete" onclick="deleteLast()">
+                DEL
+            </button>
 
-            <button onclick="appendValue('7')" style="height: 60px; font-size: 20px;">7</button>
-            <button onclick="appendValue('8')" style="height: 60px; font-size: 20px;">8</button>
-            <button onclick="appendValue('9')" style="height: 60px; font-size: 20px;">9</button>
-            <button onclick="appendValue('*')" style="height: 60px; font-size: 20px;">×</button>
+            <button class="operator" onclick="appendValue('%')">
+                %
+            </button>
 
-            <button onclick="appendValue('4')" style="height: 60px; font-size: 20px;">4</button>
-            <button onclick="appendValue('5')" style="height: 60px; font-size: 20px;">5</button>
-            <button onclick="appendValue('6')" style="height: 60px; font-size: 20px;">6</button>
-            <button onclick="appendValue('-')" style="height: 60px; font-size: 20px;">−</button>
+            <button class="operator" onclick="appendValue('/')">
+                ÷
+            </button>
 
-            <button onclick="appendValue('1')" style="height: 60px; font-size: 20px;">1</button>
-            <button onclick="appendValue('2')" style="height: 60px; font-size: 20px;">2</button>
-            <button onclick="appendValue('3')" style="height: 60px; font-size: 20px;">3</button>
-            <button onclick="appendValue('+')" style="height: 60px; font-size: 20px;">+</button>
 
-            <button onclick="appendValue('0')" style="height: 60px; font-size: 20px;">0</button>
-            <button onclick="appendValue('.')" style="height: 60px; font-size: 20px;">.</button>
+           
+            <button onclick="appendValue('7')">
+                7
+            </button>
+
+            <button onclick="appendValue('8')">
+                8
+            </button>
+
+            <button onclick="appendValue('9')">
+                9
+            </button>
+
+            <button class="operator" onclick="appendValue('*')">
+                ×
+            </button>
+
+
+            
+            <button onclick="appendValue('4')">
+                4
+            </button>
+
+            <button onclick="appendValue('5')">
+                5
+            </button>
+
+            <button onclick="appendValue('6')">
+                6
+            </button>
+
+            <button class="operator" onclick="appendValue('-')">
+                −
+            </button>
+
+
+            
+            <button onclick="appendValue('1')">
+                1
+            </button>
+
+            <button onclick="appendValue('2')">
+                2
+            </button>
+
+            <button onclick="appendValue('3')">
+                3
+            </button>
+
+            <button class="operator" onclick="appendValue('+')">
+                +
+            </button>
+
+
+            
+
+            <button onclick="appendValue('0')">
+                0
+            </button>
+
+            <button onclick="appendValue('.')">
+                .
+            </button>
 
             <button
                 onclick="calculate()"
                 style="
-                    height: 60px;
-                    font-size: 20px;
                     grid-column: span 2;
                     background-color: #4CAF50;
                     color: white;
-                    border: none;
-                    border-radius: 8px;
                 "
             >
                 =
             </button>
 
+
         </div>
+
     </div>
 
-    <script>
-        const display = document.getElementById("display");
 
-        function appendValue(value) {
-            display.value += value;
-        }
+   
+       
+   <script src="script.js"></script>    
 
-        function clearDisplay() {
-            display.value = "";
-        }
-
-        function deleteLast() {
-            display.value = display.value.slice(0, -1);
-        }
-
-        function calculate() {
-            try {
-                display.value = eval(display.value);
-            } catch {
-                display.value = "Error";
-            }
-        }
-    </script>
 
 </body>
+
 </html>
 
